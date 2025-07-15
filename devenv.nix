@@ -40,4 +40,8 @@
   scripts.format.exec = ''
     pre-commit run --all-files
   '';
+
+  enterTest = ''
+    poetry run pytest
+  '';
 }
