@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pydantic-api-models-notion"
-version = "0.0.20"
+version = "0.0.21"
 description = "A Pydantic-based library for Notion API data models"
 packages = [{ include = "pydantic_api" }]
 authors = ["stevieflyer"]
