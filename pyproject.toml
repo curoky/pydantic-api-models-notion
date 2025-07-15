@@ -1,6 +1,9 @@
-[tool.poetry]
+[project]
+dynamic = ["version"]
 name = "pydantic-api-models-notion"
-version = "0.0.21"
+
+[tool.poetry]
+version = "0.0.0"
 description = "A Pydantic-based library for Notion API data models"
 packages = [{ include = "pydantic_api" }]
 authors = ["stevieflyer"]
@@ -20,6 +23,11 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 emoji = "^2.14.0"
@@ -30,8 +38,8 @@ mypy = "^1.15.0"
 pytest = "^8.0.0"
 
 [build-system]
-requires = ["poetry-core>=1.5.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.5.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [[tool.mypy.overrides]]
 module = ["pydantic_api.base.*"]
