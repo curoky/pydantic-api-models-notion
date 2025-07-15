@@ -9,7 +9,7 @@ from uuid import UUID
 from pydantic import AnyUrl, Field, EmailStr
 
 from pydantic_api.base import BaseModel
-from ..user import UserObject, UserObjectFactory
+from ..user import DeletedUserObject, UserObject, UserObjectFactory
 from ..file import FileObject, FileObjectFactory
 from ..block import RichTextObject, RichTextObjectFactory
 from .common import (
@@ -55,7 +55,7 @@ class CheckboxProperty(BasePageProperty):
 # created_by, Refer to https://developers.notion.com/reference/page-property-values#created_by
 class CreatedByProperty(BasePageProperty):
     type: Literal["created_by"] = "created_by"
-    created_by: UserObject
+    created_by: Union[UserObject, DeletedUserObject]
 
     @classmethod
     def new_from_person(
@@ -192,7 +192,7 @@ class FormulaProperty(BasePageProperty):
 # last_edited_by: Refer to https://developers.notion.com/reference/page-property-values#last_edited_by
 class LastEditedByProperty(BasePageProperty):
     type: Literal["last_edited_by"] = "last_edited_by"
-    last_edited_by: UserObject
+    last_edited_by: Union[UserObject, DeletedUserObject]
 
     @classmethod
     def new_from_person(

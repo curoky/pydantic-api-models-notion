@@ -102,6 +102,11 @@ class BotUserObject(_BaseUserObject):
     )
 
 
+class DeletedUserObject(PartialUser):
+    """A deleted user object."""
+    pass
+
+
 UserObject = Annotated[
     Union[PersonUserObject, BotUserObject], Field(discriminator="type")
 ]
