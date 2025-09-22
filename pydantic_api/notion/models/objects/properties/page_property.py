@@ -223,7 +223,7 @@ class NumberProperty(BasePageProperty):
 # people: Refer to https://developers.notion.com/reference/page-property-values#people
 class PeopleProperty(BasePageProperty):
     type: Literal["people"] = "people"
-    people: List[UserObject]
+    people: List[UserObject | DeletedUserObject]
 
     @classmethod
     def new_person_users(
